@@ -10,34 +10,33 @@ namespace _2_2_aventyrliga_kontakter.Model
 {
     public abstract class DALBase
     {
+    // Fields
         static private string _connectionString;
         protected const string DAL_ERROR_MSG = "An error occured in the data access layer.";
 
-        protected enum DALConnectOptions { open, closed };
-
+    // Properties
         static protected SqlConnection connection { get; set; }
 
-        // Constructor
+        protected enum DALOptions { openConnection, closedConnection };
+
+    // Constructor
         static DALBase()
         {
-            /*
-             * Den statiska konstruktorn initierar det statiska fältet genom att hämta anslutningssträngen från filen Web.config.
-             */
-
+            // Get connection string from Web.config
             _connectionString = WebConfigurationManager.ConnectionStrings["ContactConnectionString"].ConnectionString;
         }
 
+    // Methods
         protected SqlConnection CreateConnection()
         {
-            /*
-             * Metoden CreateConnection är ”protected” och skapar och returnerar en referens till ett anslutningsobjekt.
-             */
+            // Create connection and store it in this object
             connection = new SqlConnection(_connectionString);
 
+            // Return a reference
             return connection;
         }
 
-        protected SqlCommand Connect(string commandName, DALConnectOptions options = DALConnectOptions.open)
+        protected SqlCommand Setup(string commandName, DALOptions options = DALOptions.openConnection)
         {
             SqlCommand cmd;
 
@@ -48,7 +47,7 @@ namespace _2_2_aventyrliga_kontakter.Model
             cmd.CommandType = CommandType.StoredProcedure;
 
             // Open connection to database if opted for.
-            if (DALConnectOptions.open == options)
+            if (DALOptions.openConnection == options)
             {
                 connection.Open();
             }

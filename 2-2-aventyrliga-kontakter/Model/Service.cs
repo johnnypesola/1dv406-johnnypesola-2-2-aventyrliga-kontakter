@@ -27,16 +27,26 @@ namespace _2_2_aventyrliga_kontakter.Model
     // Methods
         public void DeleteContact(Contact contact)
         {
-
+            DeleteContact(contact.ContactId);
         }
 
         public void DeleteContact(int contactId)
         {
+            if(contactId < 0)
+            {
+                throw new ApplicationException("Ogiltigt kontakt ID påträffades vid borttagning.");
+            }
+
+            ContactDAL.DeleteContact(contactId);
 
         }
 
         public Contact GetContact(int contactId)
         {
+            if (contactId < 0)
+            {
+                throw new ApplicationException("Ogiltigt kontakt ID påträffades vid hämtning.");
+            }
 
             return ContactDAL.GetContactById(contactId);
         }
@@ -48,14 +58,11 @@ namespace _2_2_aventyrliga_kontakter.Model
 
         public IEnumerable<Contact> GetContactsPageWise(int maximumRows, int startRowIndex, out int TotalRowCount)
         {
-
+            // Calculate correct startpageIndex
             int startPageIndex = (startRowIndex / maximumRows) + 1;
 
-            System.Diagnostics.Debug.WriteLine("---> " + startRowIndex + " | " + startRowIndex / maximumRows);
-
-            IEnumerable<Contact> response = ContactDAL.GetContactsPageWise(maximumRows, startPageIndex, out TotalRowCount);
-
-            return response;
+            // Get contacts from DAL
+            return ContactDAL.GetContactsPageWise(maximumRows, startPageIndex, out TotalRowCount);
         }
 
         public void SaveContact(Contact contact)
@@ -93,7 +100,7 @@ namespace _2_2_aventyrliga_kontakter.Model
                 // Create exception
                 ApplicationException exception = new ApplicationException("Kontaktobjektet innehöll felaktiga värden. Var god försök igen.");
                 
-                // Add data to exception.
+                // Add validation data to exception.
                 exception.Data.Add("ValidationResults", validationResults);
 
                 throw exception;

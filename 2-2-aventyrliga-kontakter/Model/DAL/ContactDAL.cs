@@ -35,7 +35,7 @@ namespace _2_2_aventyrliga_kontakter.Model
                     SqlCommand cmd;
 
                     // Connect to database
-                    cmd = this.Connect("Person.uspRemoveContact");
+                    cmd = this.Setup("Person.uspRemoveContact");
 
                     // Add parameter for Stored procedure
                     cmd.Parameters.Add("@ContactID", SqlDbType.Int).Value = contactId;
@@ -61,7 +61,7 @@ namespace _2_2_aventyrliga_kontakter.Model
                     SqlCommand cmd;
 
                     // Connect to database
-                    cmd = this.Connect("Person.uspGetContact", DALConnectOptions.closed);
+                    cmd = this.Setup("Person.uspGetContact", DALOptions.closedConnection);
 
                     // Add parameter for Stored procedure
                     cmd.Parameters.Add("@ContactID", SqlDbType.Int).Value = contactId;
@@ -116,7 +116,7 @@ namespace _2_2_aventyrliga_kontakter.Model
                     contactsReturnList = new List<Contact>(50);
 
                     // Connect to database and execute given stored procedure
-                    cmd = this.Connect("Person.uspGetContacts");
+                    cmd = this.Setup("Person.uspGetContacts");
 
                     // Get all data from stored procedure
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -168,7 +168,7 @@ namespace _2_2_aventyrliga_kontakter.Model
                     contactsReturnList = new List<Contact>(maximumRows);
 
                     // Connect to database and execute given stored procedure
-                    cmd = this.Connect("Person.uspGetContactsPageWise", DALConnectOptions.closed);
+                    cmd = this.Setup("Person.uspGetContactsPageWise", DALOptions.closedConnection);
 
                     // Add parameter for Stored procedure
                     cmd.Parameters.Add("@PageIndex", SqlDbType.Int).Value = startPageIndex;
@@ -229,7 +229,7 @@ namespace _2_2_aventyrliga_kontakter.Model
                     SqlCommand cmd;
 
                     // Connect to database
-                    cmd = this.Connect("Person.uspAddContact", DALConnectOptions.closed);
+                    cmd = this.Setup("Person.uspAddContact", DALOptions.closedConnection);
 
                     // Add in parameters for Stored procedure
                     cmd.Parameters.Add("@FirstName", SqlDbType.VarChar, 50).Value = contact.FirstName;
@@ -266,7 +266,7 @@ namespace _2_2_aventyrliga_kontakter.Model
                     SqlCommand cmd;
 
                     // Connect to database
-                    cmd = this.Connect("Person.uspUpdateContact", DALConnectOptions.closed);
+                    cmd = this.Setup("Person.uspUpdateContact", DALOptions.closedConnection);
 
                     // Add in parameters for Stored procedure
                     cmd.Parameters.Add("@ContactID", SqlDbType.VarChar, 50).Value = contact.ContactId;

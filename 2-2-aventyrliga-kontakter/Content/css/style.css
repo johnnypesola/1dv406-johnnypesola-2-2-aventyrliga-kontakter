@@ -69,7 +69,13 @@ input {
     border-radius: 3px;
     border: 1px solid #DDDDDD;
     position: relative;
+
 }
+
+    .error-message ul {
+        padding: 0 0 0 20px;
+        text-align: left;
+    }
 
 .success-message {
     color: #00AA00;
@@ -160,3 +166,20 @@ input {
     a.aspNetDisabled {
         visibility: hidden;
     }
+
+    .contactContainer .email-address {
+        color: #5577dd;
+    }
+
+    .contactContainer .fname a, .contactContainer .lname a {
+        color: #000000;
+        padding: 0;
+        margin: 0;
+        display: inline;
+        border-radius: 0;
+        background: none;
+    }
+
+        .contactContainer .fname a:hover, .contactContainer .lname a:hover {
+            color: #AA0000;
+        }

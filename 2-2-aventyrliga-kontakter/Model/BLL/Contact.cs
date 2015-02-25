@@ -9,6 +9,8 @@ namespace _2_2_aventyrliga_kontakter.Model
 {
     public class Contact
     {
+        [Required(ErrorMessage = "Ett Id måste anges.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Id:t befinner sig utanför gränserna")]
         public int ContactId { get; set; }
 
         [Required(ErrorMessage = "Ett förnamn måste anges.")]
