@@ -1,0 +1,162 @@
+﻿body {
+
+    background: url(img/wallpaper_background.png) repeat-x #3d3659;
+    text-align: center;
+    color: #666666;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 30px;
+}
+
+h1 {
+    color: #FFFFFF;
+    font-size: 42px;
+    position: absolute;
+    top: 0px;
+    right: 30px;
+
+    text-shadow: 0px 0px 5px rgba(150, 150, 150, 1);
+}
+
+a {
+    padding: 2px 5px;
+    border-radius: 3px;
+    background: #6688ee;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-block;
+    margin: 3px;
+}
+
+input {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+}
+
+    input, textarea {
+        border: 1px solid #CCCCCC;
+        border-radius: 3px;
+    }
+
+    input[type=submit] {
+        background: #EEEEEE;
+        padding: 5px 10px;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background: #DDDDDD;
+        }
+
+    input[type=text] {
+        background: #EEEEEE;
+        padding: 1px 2px;
+        width: 150px;
+        margin: 1px 0;
+        font-size: 12px;
+    }
+
+.error-text {
+    color: #AA0000;
+}
+
+.error-message {
+    display: inline-block;
+    color: #AA0000;
+    margin: 5px;
+    padding: 5px;
+    background: #FFF2F2;
+    border-radius: 3px;
+    border: 1px solid #DDDDDD;
+    position: relative;
+}
+
+.success-message {
+    color: #00AA00;
+    margin: 15px auto;
+    padding: 10px 15px;
+    background: #F2FFF2;
+    border-radius: 3px;
+    border: 1px solid #DDDDDD;
+    width: 600px;
+    position: relative;
+}
+
+    .error-message .close, .success-message .close {
+        position: absolute;
+        display: block;
+        height: 16px;
+        line-height: 16px;
+        width: 16px;
+        top: 5px;
+        right: 5px;
+        padding: 0;
+        display: block;
+        border: 1px solid #DDDDDD;
+        font-size: 14px;
+        text-decoration: none;
+        background: #FFFFFF;
+        border-radius: 8px;
+        color: #000000;
+        cursor: pointer;
+    }
+
+        .error-message .close:hover, .success-message .close:hover {
+            background: #EEEEEE;
+            border: 1px solid #CCCCCC;
+        }
+
+.contactContainer {
+
+    position: relative;
+
+    text-align: left;
+
+    margin: 20px auto 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+
+    min-width: 100px;
+    width: 800px;
+
+    border-radius: 5px;
+
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.2);
+    -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.2);
+    box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.2);
+}
+
+    .contactContainer ul {
+        height: 100px;
+        background: #FFFFFF;
+        display: inline-block;
+        width: 200px;
+        padding: 10px;
+        border-radius: 3px;
+        font-size: 12px;
+        margin: 10px 20px;
+
+        position: relative;
+    }
+
+        .contactContainer ul li {
+            list-style: none;
+        }
+
+    .contactContainer .add-contact {
+        width: 750px;
+        margin: 20px;
+        padding: 10px;
+        background: #FFFFFF;
+        border-radius: 3px;
+    }
+
+    .contactContainer .buttons {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+
+    a.aspNetDisabled {
+        visibility: hidden;
+    }
