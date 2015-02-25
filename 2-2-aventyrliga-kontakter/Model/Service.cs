@@ -10,10 +10,6 @@ namespace _2_2_aventyrliga_kontakter.Model
     public class Service
     {
 
-        /*
-         * Medlemmarna i klassen Service använder presentationslogiklagret vid implementation av CRUD-funktionaliteten (Create Read Update Delete).
-         */
-
     // Fields
         private ContactDAL _contactDAL;
 
@@ -67,16 +63,6 @@ namespace _2_2_aventyrliga_kontakter.Model
 
         public void SaveContact(Contact contact)
         {
-            /*
-             * Metoden Save används både då en ny kontaktuppgift ska läggas till i tabellen Contact och då en befintlig kontaktuppgift ska uppdateras.
-             * Genom att undersöka värdet egenskapen ContactId har för Contact-objektet kan det bestämmas om det är fråga om en helt ny post, eller en uppdatering.
-             * Har ContactId värdet 0 (standardvärdet för fält av typen int) är det en ny post. Är värdet större än 0 måste det vara en befintlig post som ska uppdateras.
-             * 
-             * Innan en post skapas eller uppdateras måste Contact-objektet valideras. Misslyckas valideringen ska ett undantag av typen ApplicationException kastas.
-             * Genom egenskapen Data i klassen ApplicationException och metoden Add kan en referens till samlingen med valideringsresultat skickas med undantaget,
-             * som tas omhand och behandlas i presentationslogiklagret.
-             */
-
             // Preparare validation return data
             ICollection<ValidationResult> validationResults;
 

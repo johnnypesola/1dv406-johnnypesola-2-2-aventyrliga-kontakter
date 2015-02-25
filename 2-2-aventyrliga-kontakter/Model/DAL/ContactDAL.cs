@@ -9,22 +9,6 @@ namespace _2_2_aventyrliga_kontakter.Model
 {
     public class ContactDAL : DALBase
     {
-
-        /*
-         * Klassen har de medlemmar som krävs för att implementera CRUD-funktionalitet.
-         * Metoderna GetContactById, GetContacts och GetContactsPageWise används för att hämta en enskild kontaktuppgift,
-         * alla kontaktuppgifter respektive kontakatuppgifter en sida i taget om t.ex. 20 kontakter.
-         * 
-         * InsertContact skapar en ny post i tabellen Contact. 
-         * 
-         * UpdateContact uppdaterar en befintlig kontaktuppgift,
-         * 
-         * och DeleteContact tar bort en.
-         * 
-         * Samtliga metoder exekverar de lagrade procedurerna enligt figur 4
-         * 
-         */
-
         public void DeleteContact(int contactId)
         {
             // Create connection object
